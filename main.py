@@ -1,3 +1,4 @@
+from distutils.command.config import config
 import pandas as pd
 import numpy as np
 from algorithms.randomforest import elaborationrandomforest, optimizationrf
@@ -6,16 +7,24 @@ from algorithms.gradientboost import elaborationgradientboost, optimizationgb
 from algorithms.logisticregression import elaborationlogisticregression, optimizationlr
 from algorithms.knn import elaborationknn, optimizationknn
 from algorithms.svm import optimizationsvm,elaborationsvm
-from utils.business import calculateroccurve
-
+from algorithms.commons import calculateroccurve
+from config import *
+import pathlib
+import configparser
 
 CSV_OUTPUT = True
 HYPERTUNING = True
 OPT_ITER = 1
 
+# prepare output folder
+for folder in FOLDER_LIST:
+    path = pathlib.Path(folder)
+    path.mkdir(parents=True, exist_ok=True)
+
+# csv output indentation
 if CSV_OUTPUT:
-    with open('./Results/output.csv','a') as fd:
-        fd.write('Algorithm, Optimized, Accuracy, F1 score, FPR, TPR, TNR, FNR, training time (s), test time (s), Algorithm parameters')
+    with open(RESULTS_METRICS,'a') as fd:
+        fd.write('Algorithm, Optimized, Accuracy, F1 score, FPR, TPR, TNR, FNR, training time (s), test time (s)')
 
 
 #import data
