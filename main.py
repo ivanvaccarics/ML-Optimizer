@@ -14,7 +14,6 @@ import configparser
 
 CSV_OUTPUT = True
 HYPERTUNING = True
-OPT_ITER = 1
 
 # prepare output folder
 for folder in FOLDER_LIST:
@@ -27,11 +26,11 @@ if CSV_OUTPUT:
         fd.write('Algorithm, Optimized, Accuracy, F1 score, FPR, TPR, TNR, FNR, training time (s), test time (s)')
 
 
+# Import and manipulate your dataset. In case, you can use the function sklearn.model_selection.train_test_split to split a dataset.
 #import data
-dftrain = pd.read_csv("dataset/easa_jsma_7feat_train.csv") 
-dftest = pd.read_csv("dataset/easa_jsma_7feat_test.csv")
-seed = 7
-
+dftrain = pd.read_csv(f"{PATH_TRAIN_DATASET}easa_jsma_7feat_train.csv") 
+dftest = pd.read_csv(f"{PATH_TEST_DATASET}easa_jsma_7feat_test.csv")
+seed = SEED
 
 #train
 dftrain = dftrain.drop('RUL_binary', 1)
@@ -55,7 +54,7 @@ x_columns = dftest.columns.drop('attack')
 x_test = dftest[x_columns].values
 y_test = dftest['attack']
 
-
+# From here, the code will perform automatically
 print("Ready to generate train and test datasets")
 print("x_train, y_train, x_test, y_test" + str(x_train.shape) + "" +str(y_train.shape) + "" +str(x_test.shape) + "" +str(y_test.shape))
 
