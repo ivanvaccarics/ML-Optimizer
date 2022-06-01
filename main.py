@@ -10,7 +10,7 @@ from algorithms.svm import optimizationsvm,elaborationsvm
 from algorithms.commons import calculateroccurve
 from config import *
 import pathlib
-import configparser
+from sklearn.model_selection import train_test_split
 
 CSV_OUTPUT = True
 HYPERTUNING = True
@@ -28,35 +28,25 @@ if CSV_OUTPUT:
 
 # Import and manipulate your dataset. In case, you can use the function sklearn.model_selection.train_test_split to split a dataset.
 #import data
-dftrain = pd.read_csv(f"{PATH_TRAIN_DATASET}easa_jsma_7feat_train.csv") 
-dftest = pd.read_csv(f"{PATH_TEST_DATASET}easa_jsma_7feat_test.csv")
+df = pd.read_csv(f"{PATH_DATASET}data_banknote_authentication.csv")
 seed = SEED
 
-#train
-dftrain = dftrain.drop('RUL_binary', 1)
-print(dftrain)
-class_names = dftrain.attack.unique()
+# manipulation
+class_names = df.target.unique()
 #dftrain=dftrain.astype('category')
-cat_columns = dftrain.select_dtypes(['category']).columns
-dftrain[cat_columns] = dftrain[cat_columns].apply(lambda x: x.cat.codes)
+cat_columns = df.select_dtypes(['category']).columns
+df[cat_columns] = df[cat_columns].apply(lambda x: x.cat.codes)
 #print(dftrain.loc[125, 'target'])
-x_columns = dftrain.columns.drop('attack')
-x_train = dftrain[x_columns].values
-y_train = dftrain['attack']
+x_columns = df.columns.drop('target')
+X = df[x_columns].values
+y = df['target']
 
-#test
-dftest = dftest.drop('RUL_binary', 1)
-class_names = dftest.attack.unique()
-#dftest=dftest.astype('category')
-#cat_columns = dftest.select_dtypes(['category']).columns
-dftest[cat_columns] = dftest[cat_columns].apply(lambda x: x.cat.codes)
-x_columns = dftest.columns.drop('attack')
-x_test = dftest[x_columns].values
-y_test = dftest['attack']
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=TEST_SIZE, random_state=SEED)
 
 # From here, the code will perform automatically
 print("Ready to generate train and test datasets")
 print("x_train, y_train, x_test, y_test" + str(x_train.shape) + "" +str(y_train.shape) + "" +str(x_test.shape) + "" +str(y_test.shape))
+
 
 svmclassifier = elaborationsvm(x_train,y_train,x_test,y_test,seed,CSV_OUTPUT)
 dtclassifier = elaborationdecisiontree(x_train,y_train,x_test,y_test,seed,CSV_OUTPUT)

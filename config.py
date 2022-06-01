@@ -18,8 +18,8 @@ FOLDER_LIST = [RESULTS_DEFAULT_MODELS,RESULTS_DEFAULT_MATRIX,RESULTS_DEFAULT_PAR
 
 # Code config
 SEED = 7
-PATH_TRAIN_DATASET = 'dataset/'
-PATH_TEST_DATASET = 'dataset/'
+PATH_DATASET = 'dataset/'
+TEST_SIZE = 0.3
 
 # Optuna iteration to hyperparameters optmization
 OPT_ITER = 1
