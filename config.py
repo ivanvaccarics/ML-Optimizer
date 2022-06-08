@@ -21,5 +21,8 @@ SEED = 7
 PATH_DATASET = 'dataset/'
 TEST_SIZE = 0.3
 
+# MULTICLASS variables
+MULTICLASS = False
+
 # Optuna iteration to hyperparameters optmization
-OPT_ITER = 1
+OPT_ITER = 100

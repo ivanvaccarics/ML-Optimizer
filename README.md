@@ -6,6 +6,8 @@ In addition to running with the default parameters, the tool performs a series o
 
 The tool calculates the classic metrics used in machine learning projects: accuracy, f1 score, FPR, TPR, TNR, FNR, training time (s), test time (s), confusion matrix and ROC curve.
 
+It works both for binary and multiclass classification problems, just enable multiclass in the configuration file. For multiclass problems, the toolbox supports only numeric classes (e.g. 0, 1, 2, 3, 4). 
+
 ## Installation
 
 Clone the repo, go to the folder and run.

@@ -1,1 +1,1 @@
-{"algorithm": "ball_tree", "leaf_size": 324, "metric": "minkowski", "metric_params": null, "n_jobs": null, "n_neighbors": 109, "p": 2, "weights": "distance"}
+{"algorithm": "kd_tree", "leaf_size": 204, "metric": "minkowski", "metric_params": null, "n_jobs": null, "n_neighbors": 6, "p": 1, "weights": "distance"}

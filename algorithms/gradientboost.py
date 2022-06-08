@@ -8,7 +8,7 @@ def optimizationgb(clf,x_train,y_train,x_test,y_test,seed,csvout,OPT_ITER):
         max_depth = trial.suggest_int("max_depth", 2, 500)
         min_samples_split = trial.suggest_int("min_samples_split", 2, 500)
         n_estimators = trial.suggest_int("n_estimators", 50, 500)
-        criterion = trial.suggest_categorical("criterion", ["friedman_mse", "mse"])
+        criterion = trial.suggest_categorical("criterion", ["friedman_mse", "squared_error"])
         min_samples_leaf = trial.suggest_int("min_samples_leaf", 2, 500)
         GBC = GradientBoostingClassifier(min_samples_split = min_samples_split, 
                                     n_estimators=n_estimators, max_depth=max_depth, random_state=seed, min_samples_leaf=min_samples_leaf,

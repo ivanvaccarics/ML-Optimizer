@@ -1,1 +1,1 @@
-{"ccp_alpha": 0.0, "class_weight": null, "criterion": "gini", "max_depth": 173, "max_features": null, "max_leaf_nodes": 49, "min_impurity_decrease": 0.0, "min_samples_leaf": 157, "min_samples_split": 267, "min_weight_fraction_leaf": 0.0, "random_state": 7, "splitter": "best"}
+{"ccp_alpha": 0.0, "class_weight": null, "criterion": "gini", "max_depth": 266, "max_features": null, "max_leaf_nodes": 287, "min_impurity_decrease": 0.0, "min_samples_leaf": 2, "min_samples_split": 24, "min_weight_fraction_leaf": 0.0, "random_state": 7, "splitter": "best"}
