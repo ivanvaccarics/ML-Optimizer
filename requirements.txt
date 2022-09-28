@@ -42,7 +42,7 @@ libwebp-base=1.2.2=h1a28f6b_0
 libzlib=1.2.12=h90dfc92_0
 llvm-openmp=14.0.4=hd125106_0
 lz4-c=1.9.3=hc377ac9_0
-mako=1.1.4=pyhd3eb1b0_0
+mako>=1.2.2
 markupsafe=2.0.1=py310h1a28f6b_0
 matplotlib=3.5.1=py310hca03da5_1
 matplotlib-base=3.5.1=py310hc377ac9_1
