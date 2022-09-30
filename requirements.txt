@@ -22,7 +22,7 @@ giflib=5.2.1=h1a28f6b_0
 greenlet=1.1.1=py310hc377ac9_0
 importlib-metadata=4.11.3=py310hca03da5_0
 importlib_resources=5.2.0=pyhd3eb1b0_1
-joblib=1.1.0=pyhd3eb1b0_0
+joblib>=1.2.0
 jpeg=9e=h1a28f6b_0
 kiwisolver=1.4.2=py310hc377ac9_0
 lcms2=2.12=hba8e193_0
